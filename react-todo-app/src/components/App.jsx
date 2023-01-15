@@ -13,9 +13,10 @@ function App() {
   function handleClick(e) {
     setLi((prevItems) => {
       return ([
-        ...prevItems, <li>{item}</li>
+        ...prevItems, item
       ])
     })
+    setItem("")
   }
   return (
     <div className="container">
@@ -30,7 +31,7 @@ function App() {
       </div>
       <div>
         <ul>
-        {li}
+        {li.map((todoItem) => <li>{todoItem}</li>)}
         </ul>
       </div>
     </div>
