@@ -3,21 +3,24 @@ import TodoItem from "./TodoItem";
 
 function App() {
   const [item, setItem] = useState("");
-  const [li, setLi] = useState([]);
+  const [lis, setLis] = useState([]);
 
-  function handleChange(e) {
+  function handleItem(e) {
     let {value} = e.target;
     setItem(value)
-    console.log(value)
   }
 
   function handleClick(e) {
-    setLi((prevItems) => {
+    setLis((prevItems) => {
       return ([
         ...prevItems, item
       ])
     })
     setItem("")
+  }
+
+  function deleteItem(id) {
+    setLis(prevItems => prevItems.filter((item, index)=> index !== id))
   }
   return (
     <div className="container">
@@ -25,14 +28,14 @@ function App() {
         <h1>To-Do List</h1>
       </div>
       <div className="form">
-        <input value={item} onChange={handleChange} type="text" />
+        <input value={item} onChange={handleItem} type="text" />
         <button onClick={handleClick}>
           <span>Add</span>
         </button>
       </div>
       <div>
         <ul>
-        {li.map((item) => (<TodoItem listItem={item} />))} 
+        {lis.map((item, index) => (<TodoItem key={index} id={index} listItem={item} deleteItem={deleteItem}/>))} 
         </ul>
       </div>
     </div>

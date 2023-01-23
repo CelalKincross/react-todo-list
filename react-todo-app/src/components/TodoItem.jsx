@@ -1,14 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 
 
 function TodoItem(props) {
-    const [lineThrough, setLineThrough] = useState(false)
 
-    function handleClick(){
-        setLineThrough(prev => !prev);
-    }
-
-    return (<li onClick={handleClick} style={{textDecoration: lineThrough && "line-through"}} >{props.listItem}</li>)
+    return (<li onClick={()=> props.deleteItem(props.id)} >{props.listItem}</li>)
 }
 
 export default TodoItem;
