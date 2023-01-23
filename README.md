@@ -31,7 +31,7 @@
 ## Features
 
 - Add button which updates immediately using state
-- 
+- Click for deleting item
 - 
 
 
@@ -47,12 +47,12 @@ Project is: _in progress_
 ## Room for Improvement
 
 Room for improvement:
-- 
-- 
+- add a done section with linethrough
+- delete item in line through section
 
 To do:
-- 
-- 
+- click to move item to linethrough box
+- share delete functionality with linethrough box
 
 
 ## Acknowledgements
